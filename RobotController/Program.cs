@@ -8,6 +8,7 @@ namespace RobotController
     {
         static void Main(string[] args)
         {
+            #region Test Data
             var testGrid = InitializeGrid(5, 5);
             var testObstacles = new List<IObstacle>
             {
@@ -26,7 +27,7 @@ namespace RobotController
             };
 
             var instructions = "LFFLFRFRFLRLRFRFLFL"; // should end at [1, 2] with direction 1 (90)
-
+            #endregion
             Console.WriteLine("Output result will be in the following format:");
             Console.WriteLine("instruction: [x, y] (direction)");
             Console.WriteLine();

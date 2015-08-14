@@ -12,7 +12,7 @@ namespace RobotController
     public class Obstacle : IObstacle
     {
         public string Type;
-        public Func<Robot, Robot> RobotAction;
+        public Func<Robot, Robot> RobotAction = r => r; // default for all obstacles, known or unknown, will be to not move there
         public int[] ObstaclePosition;
         public Dictionary<int[], IObstacle> Grid;
 
@@ -27,7 +27,7 @@ namespace RobotController
     public class Obstacle<T> : Obstacle, IObstacle
     {
         public T ActionData;
-        new public Func<Robot, T, Robot> RobotAction;
+        new public Func<Robot, T, Robot> RobotAction = (r, data) => r; // default for all obstacles, known or unknown, will be not move there
 
         new public Robot TakeAction(Robot robot)
         {
@@ -41,7 +41,6 @@ namespace RobotController
         {
             Type = "Rock";
             ObstaclePosition = position;
-            RobotAction = r => r;
             Grid = grid;
         }
     }

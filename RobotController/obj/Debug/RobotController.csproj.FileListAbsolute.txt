@@ -1,0 +1,6 @@
+C:\Users\jmartin\Google Drive\Dev\RobotController\RobotController\RobotController\bin\Debug\RobotController.exe.config
+C:\Users\jmartin\Google Drive\Dev\RobotController\RobotController\RobotController\bin\Debug\RobotController.exe
+C:\Users\jmartin\Google Drive\Dev\RobotController\RobotController\RobotController\bin\Debug\RobotController.pdb
+C:\Users\jmartin\Google Drive\Dev\RobotController\RobotController\RobotController\obj\Debug\RobotController.csprojResolveAssemblyReference.cache
+C:\Users\jmartin\Google Drive\Dev\RobotController\RobotController\RobotController\obj\Debug\RobotController.exe
+C:\Users\jmartin\Google Drive\Dev\RobotController\RobotController\RobotController\obj\Debug\RobotController.pdb

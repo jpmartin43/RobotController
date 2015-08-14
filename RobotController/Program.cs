@@ -13,10 +13,10 @@ namespace RobotController
             {
                 new Rock(new [] { 2, 2 }, testGrid),
                 new Rock(new [] { 2, 3 }, testGrid),
-                new Hole(new [] { 1, 1 }, new [] { 0, 1 }, testGrid),
+                new Hole(new [] { 1, 1 }, new [] { 1, 0 }, testGrid),
                 new Hole(new [] { 4, 3 }, new [] { 2, 4 }, testGrid),
                 new Spinner(270, new [] { 1, 2 }, testGrid),
-                new Spinner(90, new [] { 0, 3 }, testGrid)
+                new Spinner(90, new [] { 3, 0 }, testGrid)
             };
             PopulateGrid(testObstacles, ref testGrid);
 
@@ -25,8 +25,7 @@ namespace RobotController
                 Direction = 2
             };
 
-            // TODO: figure out why the third instruction isn't updating properly
-            var instructions = "FFLFFRRFRLFRFFRFFL"; // should end at [4, 3] with direction 2 (180)
+            var instructions = "LFFLFRFRFLRLRFRFLFL"; // should end at [1, 2] with direction 1 (90)
 
             Console.WriteLine("Output result will be in the following format:");
             Console.WriteLine("instruction: [x, y] (direction)");

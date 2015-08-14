@@ -12,12 +12,13 @@ namespace RobotController
         /// <summary>
         /// Updates the Robot position and direction based on its movement instructions property
         /// </summary>
+        /// <param name="instruction">Instruction the robot should act upon</param>
         /// <param name="grid">Grid to be traversed upon</param>
         public void Move(string instruction, Dictionary<int[], IObstacle> grid)
         {
             var movement = GetMovement(instruction.ToUpper(), Direction);
-            UpdatePosition(movement.Item1, grid);
             Direction = movement.Item2;
+            UpdatePosition(movement.Item1, grid);
         }
 
         public Robot UpdatePosition(int[] positionUpdate, Dictionary<int[], IObstacle> grid)

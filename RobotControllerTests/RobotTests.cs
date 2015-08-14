@@ -96,6 +96,7 @@ namespace RobotControllerTests
             robot = robot.UpdatePosition(spinner.Position, grid);
 
             Assert.IsTrue(robot.Position.SequenceEqual(new[] { 1, 0 }));
+            Assert.AreEqual(3, robot.Direction);
         }
 
         [TestMethod]
@@ -152,13 +153,13 @@ namespace RobotControllerTests
             var result = new Tuple<int[], int>(new[] {0, -1}, 0);
 
             Assert.IsTrue(result.Item1.SequenceEqual(F0.Item1));
-            Assert.AreEqual(F0.Item2, result.Item2);
+            Assert.AreEqual(result.Item2, F0.Item2);
 
             Assert.IsTrue(result.Item1.SequenceEqual(L1.Item1));
-            Assert.AreEqual(L1.Item2, result.Item2);
+            Assert.AreEqual(result.Item2, L1.Item2);
 
             Assert.IsTrue(result.Item1.SequenceEqual(R3.Item1));
-            Assert.AreEqual(R3.Item2, result.Item2);
+            Assert.AreEqual(result.Item2, R3.Item2);
         }
 
         [TestMethod]
@@ -171,13 +172,13 @@ namespace RobotControllerTests
             var result = new Tuple<int[], int>(new[] {1, 0}, 1);
 
             Assert.IsTrue(result.Item1.SequenceEqual(R0.Item1));
-            Assert.AreEqual(R0.Item2, result.Item2);
+            Assert.AreEqual(result.Item2, R0.Item2);
 
             Assert.IsTrue(result.Item1.SequenceEqual(F1.Item1));
-            Assert.AreEqual(F1.Item2, result.Item2);
+            Assert.AreEqual(result.Item2, F1.Item2);
 
             Assert.IsTrue(result.Item1.SequenceEqual(L2.Item1));
-            Assert.AreEqual(L2.Item2, result.Item2);
+            Assert.AreEqual(result.Item2, L2.Item2);
         }
 
         [TestMethod]
@@ -190,13 +191,13 @@ namespace RobotControllerTests
             var result = new Tuple<int[], int>(new[] {0, 1}, 2);
 
             Assert.IsTrue(result.Item1.SequenceEqual(R1.Item1));
-            Assert.AreEqual(R1.Item2, result.Item2);
+            Assert.AreEqual(result.Item2, R1.Item2);
 
             Assert.IsTrue(result.Item1.SequenceEqual(F2.Item1));
-            Assert.AreEqual(F2.Item2, result.Item2);
+            Assert.AreEqual(result.Item2, F2.Item2);
 
             Assert.IsTrue(result.Item1.SequenceEqual(L3.Item1));
-            Assert.AreEqual(L3.Item2, result.Item2);
+            Assert.AreEqual(result.Item2, L3.Item2);
         }
 
         [TestMethod]
@@ -209,13 +210,13 @@ namespace RobotControllerTests
             var result = new Tuple<int[], int>(new[] {-1, 0}, 3);
 
             Assert.IsTrue(result.Item1.SequenceEqual(L0.Item1));
-            Assert.AreEqual(L0.Item2, result.Item2);
+            Assert.AreEqual(result.Item2, L0.Item2);
 
             Assert.IsTrue(result.Item1.SequenceEqual(R2.Item1));
-            Assert.AreEqual(R2.Item2, result.Item2);
+            Assert.AreEqual(result.Item2, R2.Item2);
 
             Assert.IsTrue(result.Item1.SequenceEqual(F3.Item1));
-            Assert.AreEqual(F3.Item2, result.Item2);
+            Assert.AreEqual(result.Item2, F3.Item2);
         }
 
         [TestMethod]
@@ -228,13 +229,13 @@ namespace RobotControllerTests
             var result = new Tuple<int[], int>(new[] { -1, 0 }, 3);
 
             Assert.IsTrue(result.Item1.SequenceEqual(L0.Item1));
-            Assert.AreEqual(L0.Item2, result.Item2);
+            Assert.AreEqual(result.Item2, L0.Item2);
 
             Assert.IsTrue(result.Item1.SequenceEqual(R2.Item1));
-            Assert.AreEqual(R2.Item2, result.Item2);
+            Assert.AreEqual(result.Item2, R2.Item2);
 
             Assert.IsTrue(result.Item1.SequenceEqual(F3.Item1));
-            Assert.AreEqual(F3.Item2, result.Item2);
+            Assert.AreEqual(result.Item2, F3.Item2);
         }
 
         [TestMethod]
@@ -245,7 +246,7 @@ namespace RobotControllerTests
             var result = new Tuple<int[], int>(new[] {0, 0}, 5);
 
             Assert.IsTrue(result.Item1.SequenceEqual(F5.Item1));
-            Assert.AreEqual(F5.Item2, result.Item2);
+            Assert.AreEqual(result.Item2, F5.Item2);
         }
 
         [TestMethod]
@@ -256,7 +257,7 @@ namespace RobotControllerTests
             var result = new Tuple<int[], int>(new[] {0, 0}, 1);
 
             Assert.IsTrue(result.Item1.SequenceEqual(Q1.Item1));
-            Assert.AreEqual(Q1.Item2, result.Item2);
+            Assert.AreEqual(result.Item2, Q1.Item2);
         }
         #endregion
         #region GetDirection Tests
@@ -266,19 +267,19 @@ namespace RobotControllerTests
         {
             var angle = 0;
             var result = Robot.GetDirection(angle);
-            Assert.AreEqual(result, 0);
+            Assert.AreEqual(0, result);
 
             angle = 90;
             result = Robot.GetDirection(angle);
-            Assert.AreEqual(result, 1);
+            Assert.AreEqual(1, result);
 
             angle = 180;
             result = Robot.GetDirection(angle);
-            Assert.AreEqual(result, 2);
+            Assert.AreEqual(2, result);
 
             angle = 270;
             result = Robot.GetDirection(angle);
-            Assert.AreEqual(result, 3);
+            Assert.AreEqual(3, result);
         }
 
         [TestMethod]
@@ -287,7 +288,7 @@ namespace RobotControllerTests
             var angle = 361;
             var result = Robot.GetDirection(angle);
 
-            Assert.AreEqual(result, 0);
+            Assert.AreEqual(0, result);
         }
 
         [TestMethod]
@@ -296,7 +297,7 @@ namespace RobotControllerTests
             var angle = 45;
             var result = Robot.GetDirection(angle);
 
-            Assert.AreEqual(result, 0);
+            Assert.AreEqual(0, result);
         }
 
         [TestMethod]
@@ -304,27 +305,27 @@ namespace RobotControllerTests
         {
             var angle = -90;
             var result = Robot.GetDirection(angle);
-            Assert.AreEqual(result, 3);
+            Assert.AreEqual(3, result);
 
             angle = -45;
             result = Robot.GetDirection(angle);
-            Assert.AreEqual(result, 3);
+            Assert.AreEqual(3, result);
 
             angle = -1;
             result = Robot.GetDirection(angle);
-            Assert.AreEqual(result, 3);
+            Assert.AreEqual(3, result);
 
             angle = -361;
             result = Robot.GetDirection(angle);
-            Assert.AreEqual(result, 3);
+            Assert.AreEqual(3, result);
 
             angle = 2340;
             result = Robot.GetDirection(angle);
-            Assert.AreEqual(result, 2);
+            Assert.AreEqual(2, result);
 
             angle = -2340;
             result = Robot.GetDirection(angle);
-            Assert.AreEqual(result, 2);
+            Assert.AreEqual(2, result);
         }
         #endregion
     }
